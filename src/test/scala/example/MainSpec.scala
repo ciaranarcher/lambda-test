@@ -1,19 +1,20 @@
 import org.scalatest._
 
 class MainSpec extends FlatSpec with Matchers {
-  it should "take an input steam and decode it to JSON" in {
-    val input = """{
+
+  val input = """{
       "firstName": "Ciaran",
       "lastName": "Archer"
     }"""
 
-    import java.io.{ByteArrayInputStream, ByteArrayOutputStream}
-    val in = new ByteArrayInputStream(input.getBytes)
-    val out = new ByteArrayOutputStream()
+  import java.io.{ByteArrayInputStream, ByteArrayOutputStream}
+  val in = new ByteArrayInputStream(input.getBytes)
+  val out = new ByteArrayOutputStream()
 
-    val subject = new example.Main()
+  val subject = new example.Main()
+
+  it should "take an input steam and decode it to JSON" in {
     subject.greeting(in, out)
-
-    assert("Greetings Ciaran Archer." == out.toString)
+    out.toString should equal("Greetings Ciaran Archer.")
   }
 }

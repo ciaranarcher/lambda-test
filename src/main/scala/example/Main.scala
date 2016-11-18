@@ -1,13 +1,15 @@
 package example
+import java.io.{InputStream, OutputStream}
+
+import org.json4s
+import org.json4s.DefaultFormats
+import org.json4s.jackson.parseJson
 
 case class NameInfo(firstName: String, lastName: String)
 
 class Main {
-  import java.io.{InputStream, OutputStream}
 
   def greeting(input: InputStream, output: OutputStream): Unit = {
-    import org.json4s._
-    import org.json4s.jackson._
     implicit val formats = DefaultFormats
 
     val json = parseJson(scala.io.Source.fromInputStream(input).mkString)
