@@ -8,7 +8,9 @@ lazy val root = (project in file(".")).
     retrieveManaged := true,
     libraryDependencies += "com.amazonaws" % "aws-lambda-java-core" % "1.0.0",
     libraryDependencies += "com.amazonaws" % "aws-lambda-java-events" % "1.0.0",
-    libraryDependencies += "org.json4s" %% "json4s-jackson" % "3.5.0"
+    libraryDependencies += "org.json4s" %% "json4s-jackson" % "3.5.0",
+    libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.0",
+    libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.0" % "test"
   )
 
 mergeStrategy in assembly :=
