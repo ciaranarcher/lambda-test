@@ -12,11 +12,7 @@ class Main {
     implicit val formats = DefaultFormats
 
     val json = parseJson(scala.io.Source.fromInputStream(input).mkString)
-    println("********************************")
-    println(json)
-    println("********************************")
 
-    // Use http://json4s.org/ to read into the case class
     val name = json.extract[NameInfo]
 
     val result = s"Greetings ${name.firstName} ${name.lastName}."
