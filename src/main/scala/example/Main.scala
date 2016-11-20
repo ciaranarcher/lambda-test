@@ -1,7 +1,6 @@
 package example
 import java.io.{InputStream, OutputStream}
 
-import org.json4s
 import org.json4s.DefaultFormats
 import org.json4s.jackson.parseJson
 
@@ -13,6 +12,9 @@ class Main {
     implicit val formats = DefaultFormats
 
     val json = parseJson(scala.io.Source.fromInputStream(input).mkString)
+    println("********************************")
+    println(json)
+    println("********************************")
 
     // Use http://json4s.org/ to read into the case class
     val name = json.extract[NameInfo]
@@ -21,3 +23,4 @@ class Main {
     output.write(result.getBytes("UTF-8"))
   }
 }
+
